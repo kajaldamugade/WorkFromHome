@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WorkFromHome — Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body class="page-home">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="left">
+        <button id="burger" class="burger" aria-label="Open menu">☰</button>
+        <a href="index.html" class="logo">Work<span>FromHome</span></a>
+      </div>
+
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="right">
+        <div class="nav-search">
+          <input id="globalSearch" type="search" placeholder="Search articles..." />
+        </div>
+
+        <div class="auth-actions" id="header-auth">
+          <a href="login.html" class="btn-outline">Sign In</a>
+          <a href="register.html" class="btn-solid">Join Free</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<aside id="sidebar" class="sidebar">
+  <button id="closeSidebar" class="close-sidebar">✕</button>
+  
+  <nav class="sidebar-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="articles.html">Articles</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="sidebar-actions" id="sidebar-auth">
+    <a href="login.html" class="btn-outline">Sign In</a>
+    <a href="register.html" class="btn-solid">Join Free</a>
+  </div>
+</aside>
+
+  <div id="overlay" class="overlay"></div>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <small class="eyebrow">GET STARTED</small>
+        <h1>Build your future from the comfort of home</h1>
+        <p class="lead">Practical guides, real success stories and actionable advice to help you earn remotely.</p>
+        <div class="hero-actions">
+          <a href="articles.html" class="btn-solid">Explore Articles</a>
+          <a href="about.html" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="media-grid">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" alt="team" />
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600" alt="working" />
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600" alt="laptop" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container features">
+      <div class="feature-cards">
+        <article class="card">
+          <h4>Freelancing guides</h4>
+          <p>Step by step help to start and scale freelance income.</p>
+        </article>
+        <article class="card">
+          <h4>AI & Productivity</h4>
+          <p>Tools and workflows to make your work faster and better.</p>
+        </article>
+        <article class="card">
+          <h4>Blogging & Passive Income</h4>
+          <p>Proven tactics to build traffic and monetize content.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>This website uses cookies to ensure you get the best experience on our blog.
+        <a href="privacy.html">Learn more</a>
+      </p>
+      <div class="cookie-btns">
+        <button id="accept-cookies" class="btn-solid">Accept All</button>
+        <button id="decline-cookies" class="btn-outline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Work<span>FromHome</span></a>
+        <p>Helping you navigate the remote world with practical guides and AI-driven insights.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Resources</h4>
+        <ul>
+          <li><a href="articles.html">Latest Articles</a></li>
+          <li><a href="freelance.html">Freelance Guides</a></li>
+          <li><a href="success.html">Success Stories</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="workwithus.html">Work with Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>© 2026 WorkFromHome • Designed with ♥ by Kajal</p>
+      <div class="footer-socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // 1. Define the Logout function (needs to be global so the button can see it)
+  function logout() {
+    localStorage.removeItem('userName');
+    window.location.reload(); 
+  }
+
+  // 2. Wait for the page to finish loading before running the logic
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- USER LOGIN UI LOGIC ---
+    const userName = localStorage.getItem('userName');
+    const headerAuth = document.getElementById('header-auth');
+    const sidebarAuth = document.getElementById('sidebar-auth');
+
+    if (userName && headerAuth) {
+      const loggedInHTML = `
+        <span style="font-weight: 600; color: #2563eb; margin-right: 10px;">Hi, ${userName.split(' ')[0]}</span>
+        <button onclick="logout()" class="btn-outline" style="cursor: pointer;">Logout</button>
+      `;
+      headerAuth.innerHTML = loggedInHTML;
+      if(sidebarAuth) sidebarAuth.innerHTML = loggedInHTML;
+    }
+
+    // --- COOKIE BANNER LOGIC ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const declineBtn = document.getElementById('decline-cookies');
+
+    // Only show if they haven't accepted before
+    if (cookieBanner && !localStorage.getItem('cookieConsent')) {
+      cookieBanner.classList.add('show');
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'true');
+        cookieBanner.classList.remove('show');
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        // This line tells the browser: "The user said no, don't show the banner again"
+        localStorage.setItem('cookieConsent', 'declined'); 
+        cookieBanner.classList.remove('show');
+      });
+    }
+  });
+</script>
+</body>
+</html>
